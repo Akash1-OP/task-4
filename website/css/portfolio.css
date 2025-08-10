@@ -1,0 +1,458 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 16px; /* base */
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.4s, color 0.4s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #eee;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.4s;
+    flex-wrap: wrap;
+}
+
+body.dark-theme header {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #007bff;
+    cursor: default;
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+    flex: 1 1 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+nav ul li a.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.dark-theme nav ul li a {
+    color: #ccc;
+}
+
+body.dark-theme nav ul li a:hover,
+body.dark-theme nav ul li a.active {
+    background-color: #3399ff;
+    color: #fff;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: #555;
+    transition: color 0.3s;
+    flex: 1 1 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+body.dark-theme .theme-toggle {
+    color: #ddd;
+}
+
+/* PORTFOLIO HERO */
+.portfolio-hero {
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+    color: #fff;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-hero p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.6rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Particle background for hero */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* FILTER BUTTONS */
+.filter-buttons {
+    margin: 1.5rem 0 1rem;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.filter-btn {
+    cursor: pointer;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+    background-color: #0056b3;
+}
+
+.filter-btn.active {
+    background-color: #3399ff;
+}
+
+/* PORTFOLIO GRID */
+.portfolio-grid {
+    max-width: 1200px;
+    margin: 3rem auto 6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+/* PORTFOLIO CARD */
+.portfolio-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(40px);
+    position: relative;
+}
+
+body.dark-theme .portfolio-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 12px 20px rgba(255,255,255,0.1);
+}
+
+.portfolio-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0,123,255,0.4);
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.portfolio-card h3 {
+    padding: 1rem 1.5rem 0.5rem;
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: 700;
+}
+
+.portfolio-card p {
+    flex-grow: 1;
+    padding: 0 1.5rem 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+body.dark-theme .portfolio-card p {
+    color: #ccc;
+}
+
+/* Tooltip for tech stack on hover */
+.portfolio-card[data-tech]:hover::after {
+    content: attr(data-tech);
+    position: absolute;
+    background: #007bff;
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    top: 10px;
+    left: 10px;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* BUTTONS */
+.btn-small {
+    display: inline-block;
+    margin: 0 1.5rem 1.2rem;
+    padding: 0.45rem 1rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: #0056b3;
+}
+
+/* FOOTER */
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 1.2rem 1rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+body.dark-theme footer {
+    background-color: #111;
+    color: #999;
+}
+
+footer .socials {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+footer .socials a {
+    color: #ccc;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+footer .socials a:hover {
+    color: #007bff;
+}
+
+/* --- Responsive Typography --- */
+@media (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* --- Responsive Header --- */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .logo {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-bottom: 0.6rem;
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex: 1 1 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .theme-toggle {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+}
+
+/* --- Responsive Portfolio Hero --- */
+@media (max-width: 600px) {
+    .portfolio-hero {
+        padding: 3rem 1rem 2rem;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .portfolio-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .portfolio-hero p {
+        font-size: 0.95rem;
+    }
+}
+
+/* --- Responsive Filter Buttons --- */
+@media (max-width: 480px) {
+    .filter-buttons {
+        margin: 1rem 0 1rem;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Responsive Portfolio Grid --- */
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 0.8rem;
+        margin-bottom: 3rem;
+    }
+}
+
+/* --- Responsive Portfolio Card --- */
+@media (max-width: 480px) {
+    .portfolio-card img {
+        height: 140px;
+    }
+
+    .portfolio-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .portfolio-card p {
+        font-size: 0.85rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .btn-small {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.9rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- Responsive Footer --- */
+@media (max-width: 480px) {
+    footer {
+        padding: 1rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    footer .socials {
+        gap: 0.8rem;
+        font-size: 1.1rem;
+    }
+}
