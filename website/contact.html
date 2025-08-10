@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Contact Us</h1>
+    </header>
+
+    <section class="contact-form-section">
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Name<span class="required">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email<span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject<span class="required">*</span></label>
+          <input type="text" id="subject" name="subject" placeholder="Subject" required />
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message<span class="required">*</span></label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+          <small class="error-message"></small>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div id="form-success" class="form-success" role="alert" aria-live="polite" style="display:none;">
+        Thank you! Your message has been sent.
+      </div>
+    </section>
+  </div>
+
+  <script src="contact.js"></script>
+</body>
+</html>

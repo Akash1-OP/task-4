@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product Listing — Filter & Sort</title>
+  <link rel="stylesheet" href="products.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="brand">ShopExample</h1>
+      <div class="controls-row">
+        <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="default">Sort: Relevance</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Rating: High → Low</option>
+          <option value="name-asc">Name: A → Z</option>
+        </select>
+        <select id="perPageSelect" aria-label="Products per page">
+          <option value="6">6 / page</option>
+          <option value="9">9 / page</option>
+          <option value="12" selected>12 / page</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <aside class="sidebar" aria-label="Filters">
+      <section>
+        <h3>Category</h3>
+        <div id="categoryFilters" class="checkbox-list"></div>
+      </section>
+
+      <section>
+        <h3>Price</h3>
+        <div class="price-row">
+          <input id="minPrice" type="number" step="0.01" placeholder="Min" aria-label="Minimum price">
+          <input id="maxPrice" type="number" step="0.01" placeholder="Max" aria-label="Maximum price">
+        </div>
+      </section>
+
+      <section>
+        <h3>Rating</h3>
+        <select id="minRating" aria-label="Minimum rating">
+          <option value="0">Any</option>
+          <option value="1">≥ 1 ★</option>
+          <option value="2">≥ 2 ★</option>
+          <option value="3">≥ 3 ★</option>
+          <option value="4">≥ 4 ★</option>
+          <option value="4.5">≥ 4.5 ★</option>
+        </select>
+      </section>
+
+      <div class="filter-actions">
+        <button id="applyFiltersBtn">Apply</button>
+        <button id="resetFiltersBtn" class="ghost">Reset</button>
+      </div>
+    </aside>
+
+    <section class="products-area">
+      <div class="results-bar">
+        <div id="resultsCount" aria-live="polite"></div>
+        <div id="activeFilters" class="active-filters"></div>
+      </div>
+
+      <div id="productsGrid" class="products-grid" aria-live="polite"></div>
+
+      <nav class="pagination" aria-label="Pagination">
+        <button id="prevPage">‹ Prev</button>
+        <div id="pageInfo"></div>
+        <button id="nextPage">Next ›</button>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>Built with HTML/CSS/JS — demo product listing</small>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="products_style.js"></script>
+</body>
+</html>

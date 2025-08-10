@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do / Notes App</title>
+  <link rel="stylesheet" href="to-do.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>📝 To-Do / Notes</h1>
+      <p class="subtitle">Add tasks, set due dates, add tags, edit, search, filter and save locally.</p>
+    </header>
+
+    <main class="main">
+      <form id="taskForm" class="task-form" aria-label="Add new task">
+        <input id="taskInput" type="text" placeholder="Add a new task or note..." required aria-label="Task title" />
+        <input id="taskTags" type="text" placeholder="Tags (comma separated) — optional" aria-label="Tags" />
+        <input id="taskDue" type="date" aria-label="Due date" />
+        <button type="submit" id="addBtn">Add</button>
+      </form>
+
+      <section class="controls">
+        <div class="left-controls">
+          <label>
+            Show
+            <select id="filterStatus" aria-label="Filter tasks">
+              <option value="all">All</option>
+              <option value="active">Active</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+
+          <label>
+            Sort
+            <select id="sortBy" aria-label="Sort tasks">
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+              <option value="due-asc">Due Soon</option>
+              <option value="due-desc">Due Late</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="right-controls">
+          <input id="searchInput" type="search" placeholder="Search tasks or tags..." aria-label="Search" />
+          <button id="clearCompleted">Clear Completed</button>
+
+          <button id="exportBtn">Export</button>
+          <label class="import-label">
+            Import
+            <input id="importFile" type="file" accept=".json" />
+          </label>
+        </div>
+      </section>
+
+      <ul id="taskList" class="task-list" role="list" aria-live="polite"></ul>
+    </main>
+
+    <footer class="app-footer">
+      <small>Stored in your browser (localStorage). Export to back up or share.</small>
+    </footer>
+  </div>
+
+  <script src="to-do.js"></script>
+</body>
+</html>

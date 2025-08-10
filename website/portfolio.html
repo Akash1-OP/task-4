@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - MyPortfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+  <script src="portfolio.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="to-do.html">To-Do App</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle"><i class="fas fa-moon"></i></div>
+  </header>
+
+  <!-- PORTFOLIO HERO -->
+  <section class="portfolio-hero">
+    <h1>My Projects</h1>
+    <p>A collection of my best work in web development, design, and applications.</p>
+  </section>
+
+  <!-- FILTER BUTTONS -->
+  <section class="filter-buttons">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="web">Web</button>
+    <button class="filter-btn" data-category="design">Design</button>
+    <button class="filter-btn" data-category="app">App</button>
+  </section>
+
+  <!-- PORTFOLIO GRID -->
+  <section class="portfolio-grid">
+    <div class="portfolio-card" data-category="web" data-tech="HTML, CSS, JavaScript">
+      <img src="images/project1.jpg" alt="Project 1" />
+      <h3>Project Title 1</h3>
+      <p>Short description of the project, what it does, and technologies used.</p>
+      <a href="#" class="btn-small">View Details</a>
+    </div>
+
+    <div class="portfolio-card" data-category="design" data-tech="Figma, Photoshop">
+      <img src="images/project2.jpg" alt="Project 2" />
+      <h3>Project Title 2</h3>
+      <p>Short description of the project, what it does, and technologies used.</p>
+      <a href="#" class="btn-small">View Details</a>
+    </div>
+
+    <div class="portfolio-card" data-category="app" data-tech="React Native, Expo">
+      <img src="images/project3.jpg" alt="Project 3" />
+      <h3>Project Title 3</h3>
+      <p>Short description of the project, what it does, and technologies used.</p>
+      <a href="#" class="btn-small">View Details</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 MyPortfolio. All rights reserved.</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
